@@ -1,0 +1,32 @@
+doctype html
+html
+  head
+    title Max- Trello Clone
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    script(type="text/javascript" src="javascripts/vendor/all.js")
+    script(type="text/javascript" src="javascripts/handlebars_templates.js")
+  body
+    block content
+    
+    // Bootstrap data into intial page load
+    script(type='text/javascript').
+      var initialData = !{JSON.stringify(data)}
+
+    script(type="text/javascript" src="javascripts/application.js")
+
+    script(type="text/javascript" src="javascripts/models/board.js")
+    script(type="text/javascript" src="javascripts/models/list.js")
+    script(type="text/javascript" src="javascripts/models/card.js")
+
+    script(type="text/javascript" src="javascripts/collections/boards.js")
+    script(type="text/javascript" src="javascripts/collections/lists.js")
+    script(type="text/javascript" src="javascripts/collections/cards.js")
+
+    script(type="text/javascript" src="javascripts/views/board.js")
+    script(type="text/javascript" src="javascripts/views/list.js")
+    script(type="text/javascript" src="javascripts/views/card.js")
+    script(type="text/javascript" src="javascripts/views/modal.js")
+    script(type="text/javascript" src="javascripts/views/header.js")  
+    script(type="text/javascript" src="javascripts/views/search.js")
+
+    script(type="text/javascript" src="javascripts/router.js")

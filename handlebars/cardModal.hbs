@@ -1,0 +1,39 @@
+<div class="modal-bg"></div>
+<div class="card-modal">
+  <div class="flex-container">
+    <span class="icon-layout"></span>
+    <input class="modal-card-title" value="{{title}}">
+    <a href="#" class="btn-close-modal">
+      <span class="icon-close"></span>
+    </a>
+  </div>
+  
+  <div class="card-details">
+    <h3>in list <a href="">{{listNameFromID currentList}}</a></h3>
+    <h3>Description: <a href="#" class="edit-des">Edit</a></h3>
+
+    <div class="description">
+      {{#if description}}
+      <p class="des-text">{{description}}</p>
+      {{else}}
+      <div class="des-default">
+        <span class="icon-text"></span>
+        <p>Edit the description...</p>
+      </div>
+      {{/if}}
+    </div>
+
+    <div class="editable-description hidden">
+      <textarea class="des-textarea" placeholder="Add a more detailed description...">{{description}}</textarea>
+      <div>
+        <a href="#" class="btn-confirm">Save</a>
+        <a href="#" class="btn-close-des-edit">
+          <span class="icon-close"></span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+  <a href="#" class="btn-delete">Delete Card</a>
+</div>

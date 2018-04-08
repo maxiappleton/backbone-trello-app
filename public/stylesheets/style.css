@@ -1,0 +1,762 @@
+@import url("reset.css");
+
+/* ----- GENERAL ----- */
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  font: 200 14px Helvetica, sans-serif;
+  background-color: #0075C2;
+}
+
+a {
+  text-decoration: none;
+}
+
+.flex-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.grid-grouping {
+  display: grid;
+  grid-auto-flow: column;
+  grid-column-gap: 10px;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+/* Buttons */
+
+[class^="btn-"] {
+  display: inline-block;
+  border-radius: 5px;
+  padding: 5px 10px;
+  height: 30px;
+}
+
+.btn-confirm {
+  background: #2ecc71;
+  color: #FFFFFF;
+  height: 35px;
+  padding: 0 10px;
+  font-weight: bold;
+  font-size: 15px;
+  line-height: 35px;
+  text-align: center;
+}
+
+.btn-confirm:hover {
+  background: #27ae60;
+}
+
+.btn-delete {
+  background: #e74c3c;
+  color: #FFFFFF;
+  height: 35px;
+  padding: 0 10px;
+  font-weight: bold;
+  font-size: 15px;
+  line-height: 35px;
+  text-align: center;
+}
+
+.btn-delete:hover {
+  background: #c0392b;
+}
+
+.text-btn {
+  color: white;
+  vertical-align: bottom;
+  line-height: 14px;
+}
+
+/* Icons */
+
+[class^="icon-"] {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  background: no-repeat url("../images/icons.svg");
+  vertical-align: middle;
+}
+
+.icon-back {
+  background-position: 0 -15px;
+}
+
+.icon-trello {
+  background-position: 0 -225px;
+}
+
+.icon-search {
+  background-position: 0 -165px;
+}
+
+.icon-close {
+  background-position: 0 -45px;
+}
+
+.icon-close:hover {
+  background-position: 0 -60px;
+}
+
+.icon-trello-logo {
+  background-position: 0 -210px;
+}
+
+.icon-add {
+  background-position: 0 0;
+}
+
+.icon-info {
+  background-position: 0 -90px;
+}
+
+.icon-bell {
+  background-position: 0 -30px;
+}
+
+.icon-star {
+  background-position: 0 -180px;
+}
+
+.icon-private {
+  background-position: 0 -150px;
+}
+
+.icon-menu {
+  background-position: 0 -135px;
+}
+
+.icon-menu-grey {
+  background-position: 0 -120px;
+}
+
+.icon-text {
+  background-position: 0 -195px;
+}
+
+.icon-edit {
+  background-position: 0 -75px;
+}
+
+.icon-layout {
+  background-position: 0 -105px;
+}
+
+/* ----- HEADER ----- */
+
+header {
+  background: #0063A5;
+  height: 40px;
+  min-width: 600px;
+  padding: 5px 10px;
+}
+
+.btn-header {
+  background: #4C91C0;
+}
+
+.btn-header:hover {
+  background: #6DA9D2;
+}
+
+.icon-trello + span {
+  margin-left: 5px;
+  font-weight: bold;
+}
+
+.header-right {
+  min-width: 50%;
+}
+
+.icon-trello-logo {
+  margin: 8px 0 0 8px;
+  width: 55px;
+  opacity: 0.2;
+}
+
+.icon-trello-logo:hover {
+  opacity: 1;
+}
+
+.user-icon {
+  background: #D5DADC;
+  border-radius: 50%;
+  padding: 6px 5px 5px 5px;
+}
+
+.user-icon span {
+  display: inline-block;
+  color: #4D4D4D;
+  font-weight: bold;
+}
+
+/* ----- SEARCH ----- */
+
+.search-btn {
+  cursor: text;
+  padding-left: 150px;
+}
+
+.icon-search {
+  cursor: pointer;
+}
+
+.search-bar {
+  height: 30px;
+  border-radius: 5px;
+  background: #fff;
+}
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-decoration {
+  -webkit-appearance: none;
+}
+
+.search-input {
+  border: none;
+  height: 30px;
+  padding: 5px 10px;
+  outline: none;
+  border-radius: 5px;
+  font: inherit;
+}
+
+.btn-search-close {
+  vertical-align: top;
+}
+
+.search-results {
+  position: fixed;
+  z-index: 1;
+  top: 40px;
+  left: 156px;
+  min-height: 80px;
+  max-height: 600px;
+  overflow-y: auto;
+  width: 600px;
+  -webkit-box-shadow: 0 3px 8px #A8AAAA;
+          box-shadow: 0 3px 8px #A8AAAA;
+  background: #EDEFF0;
+  border-radius: 5px;
+  padding: 10px 10px 0 10px;
+}
+
+.search-results .notice {
+  margin-top: 20px;
+  color: #818C91;
+  text-align: center;
+}
+
+.search-results h2 {
+  font-weight: bold;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.result-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 15px;
+}
+
+.search-card {
+  background: white;
+  border-radius: 5px;
+  -webkit-box-shadow: 1px 1px 1px #c8c8c8;
+          box-shadow: 1px 1px 1px #c8c8c8;
+  color: black;
+  width: 180px;
+  padding: 10px;
+}
+
+.search-card-title {
+  display: block;
+}
+
+.search-card-info {
+  margin-left: 15px;
+}
+
+.search-info-details {
+  color: #828D92;
+}
+
+/* ----- BOARD ----- */
+
+.board {
+  padding: 10px;
+}
+
+.all-lists {
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  margin-top: 10px;
+  overflow-x: auto;
+  height: 500px;
+}
+
+/* Board Header */
+
+.btn-board-header:hover {
+  background: #0063A5;
+}
+
+.vertical-line {
+  border-right: 1px solid #3390CE;
+  margin-right: 3px;
+  vertical-align: middle;
+}
+
+.board-title .text-btn {
+  font-size: 18px;
+}
+
+.show-menu {
+  text-decoration: underline;
+  -webkit-text-decoration-color: white;
+          text-decoration-color: white;
+}
+
+.icon-menu + span {
+  margin-left: 5px;
+}
+
+/* Add List Section */
+
+.add-list-container {
+  margin-left: 10px;
+  width: 270px;
+}
+
+.add-list {
+  background: #0063A5;
+  display: inline-block;
+  padding: 10px;
+  height: 40px;
+  width: 270px;
+  color: #B5D0E5;
+  border-radius: 5px;
+}
+
+.add-list:hover {
+  background: #0A558C;
+}
+
+.add-list span {
+  height: 20px;
+  line-height: 20px;
+}
+
+.add-list-input {
+  width: 270px;
+  padding: 5px;
+  border-radius: 5px;
+  background: #E2E4E6;
+}
+
+.new-list-title {
+  height: 40px;
+  width: 100%;
+  border-radius: 5px;
+  padding: 10px;
+  background: #D5DADC;
+  border: 1px solid #aaa;
+  outline: none;
+  -webkit-box-shadow: inset 2px 2px 2px 2px #D2D5D5;
+          box-shadow: inset 2px 2px 2px 2px #D2D5D5;
+  font: inherit;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.new-list-title::-webkit-input-placeholder {
+  color: #828D92;
+}
+
+.new-list-title:-ms-input-placeholder {
+  color: #828D92;
+}
+
+.new-list-title::-ms-input-placeholder {
+  color: #828D92;
+}
+
+.new-list-title::placeholder {
+  color: #828D92;
+}
+
+.btn-close-list-input {
+  vertical-align: top;
+  padding-top: 7px;
+}
+
+/* ----- LISTS ----- */
+
+.list-container {
+  -ms-flex-item-align: start;
+      align-self: start;
+  background: #E2E4E6;
+  border-radius: 5px;
+  padding: 5px;
+  width: 270px;
+}
+
+.list-container + .list-container {
+  margin-left: 10px;
+}
+
+.list-ul {
+  min-height: 20px;
+}
+
+/* List Header */
+
+.list-title {
+  line-height: 30px;
+  cursor: pointer;
+  width: 100%;
+  padding: 0 0 0 5px;
+  font-weight: bold;
+}
+
+.list-title-edit {
+  font: inherit;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  width: 100%;
+  padding: 0 0 0 5px;
+  font-weight: bold;
+}
+
+.btn-menu:hover {
+  background: #B7BCBF;
+}
+
+/* List Menu */
+
+.list-menu-bg {
+  z-index: 1;
+  display: block;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: none;
+  cursor: pointer;
+}
+
+.menu-container {
+  z-index: 2;
+  position: absolute;
+  width: 200px;
+  background: white;
+  padding: 10px;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 3px 8px #A8AAAA;
+          box-shadow: 0 3px 8px #A8AAAA;
+}
+
+.menu-container h2 {
+  height: 20px;
+  line-height: 20px;
+  color: #828D92;
+  width: 100%;
+}
+
+.btn-close-menu {
+  padding: 0;
+  height: 20px;
+}
+
+.menu-container hr {
+  background-color: #828D92;
+}
+
+.menu-container .btn-delete {
+  margin-left: 40px;
+}
+
+/* List Add Card Footer */
+
+.add-card {
+  color: #818C91;
+  border-radius: 5px;
+  padding-left: 5px;
+  display: inline-block;
+  width: 100%;
+}
+
+.add-card:hover {
+  background: #C0C9CB;
+  text-decoration: underline;
+  color: #333333;
+}
+
+.add-card span {
+  height: 35px;
+  line-height: 35px;
+}
+
+.add-card-textarea {
+  width: 260px;
+  height: 70px;
+  font: inherit;
+  padding: 10px;
+  resize: none;
+  border: none;
+  border-radius: 5px;
+  -webkit-box-shadow: 1px 1px 1px #c8c8c8;
+          box-shadow: 1px 1px 1px #c8c8c8;
+  outline: none;
+  margin-bottom: 5px;
+}
+
+.btn-close-add-card-input {
+  vertical-align: top;
+  padding-top: 7px;
+}
+
+/* ----- CARDS ----- */
+
+.card-li {
+  background: white;
+  margin: 5px 0;
+  border-radius: 5px;
+  -webkit-box-shadow: 2px 2px 3px #aeaeae;
+          box-shadow: 2px 2px 3px #aeaeae;
+  padding: 3px;
+  list-style-type: none;
+}
+
+.card-li:hover {
+  background: #CFD4D6;
+}
+
+.card-link {
+  display: block;
+  color: black;
+  width: 100%;
+  padding: 7px;
+}
+
+.card-title {
+  display: block;
+}
+
+.card-li:hover .icon-edit {
+  display: inline-block;
+}
+
+.btn-card-title-edit:hover {
+  background: #B7BCBF;
+}
+
+/* Card Title Edit Modal */
+
+.card-title-edit {
+  position: absolute;
+  z-index: 2;
+}
+
+.card-title-edit .btn-confirm {
+  display: block;
+  margin-top: 5px;
+}
+
+.title-edit {
+  width: 260px;
+  height: 110px;
+  font: inherit;
+  resize: none;
+  overflow: auto;
+  padding: 5px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+}
+
+/* ----- MODAL ----- */
+
+.modal-bg {
+  display: block;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.7);
+  cursor: pointer;
+}
+
+.card-modal {
+  position: absolute;
+  z-index: 2;
+  width: 600px;
+  top: 100px;
+  left: 50%;
+  margin-left: -300px;
+  background: #EDEFF0;
+  border-radius: 5px;
+  padding: 15px;
+}
+
+/* Modal Header */
+
+.card-modal .icon-layout {
+  margin-top: 5px;
+}
+
+.modal-card-title {
+  width: 100%;
+  font: inherit;
+  font-size: 20px;
+  font-weight: bold;
+  border: none;
+  background: transparent;
+  margin: 0 10px;
+}
+
+.modal-card-title:hover {
+  background: #FFD;
+}
+
+.modal-card-title:focus {
+  outline-width: 1px;
+  outline-color: #333333;
+  background: #FFD;
+}
+
+.btn-close-modal {
+  padding: 0;
+}
+
+/* Modal Details/Description */
+
+.card-details {
+  margin-left: 25px;
+  color: #828D92;
+}
+
+.card-details h3 {
+  margin: 5px 0;
+}
+
+.card-details h3 a {
+  color: #828D92;
+  text-decoration: underline;
+}
+
+.des-text,
+.des-textarea {
+  font: inherit;
+  color: black;
+  padding: 5px;
+  display: inline-block;
+}
+
+.des-text,
+.des-default {
+  cursor: pointer;
+}
+
+.des-text:hover,
+.des-default:hover {
+  border-radius: 5px;
+  background: #D5DADC;
+}
+
+.des-default {
+  cursor: pointer;
+  padding: 5px;
+  width: 500px;
+}
+
+.des-default p {
+  color: #828D92;
+  text-decoration: underline;
+  display: inline-block;
+}
+
+.des-textarea {
+  height: 100px;
+  width: 500px;
+  background: #E6E8E8;
+  overflow: auto;
+  resize: none;
+  -webkit-box-shadow: inset 2px 2px 2px 0px #D2D5D5;
+          box-shadow: inset 2px 2px 2px 0px #D2D5D5;
+  border-radius: 5px;
+  border: 1px solid #aaa;
+  outline: none;
+}
+
+.btn-close-des-edit {
+  vertical-align: top;
+  padding-top: 7px;
+}
+
+.card-modal hr {
+  background-color: #ABBBC3;
+  margin: 20px 0;
+}
+
+.card-modal .btn-delete {
+  margin-left: 233px;
+}
+
+/* ----- VISIBILITY ----- */
+
+.hidden {
+  display: none;
+}
+
+/* ----- DRAGULA ----- */
+
+.gu-hide {
+  display: none !important;
+}
+
+.gu-unselectable {
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+  user-select: none !important;
+}
+
+.gu-transit {
+  opacity: 0.2;
+  -webkit-filter: brightness(0);
+          filter: brightness(0);
+}
+
+.gu-mirror {
+  position: fixed !important;
+  margin: 0 !important;
+  z-index: 9999 !important;
+  opacity: 0.8;
+  filter: alpha(opacity=80);
+  -webkit-transform: rotate(3deg);
+      -ms-transform: rotate(3deg);
+          transform: rotate(3deg);
+}
+
+/* ----- MEDIA QUERIES ----- */
+
+@media (max-width: 750px) {}

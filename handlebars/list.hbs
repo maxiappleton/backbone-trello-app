@@ -1,0 +1,40 @@
+<div class="flex-container">
+
+  <h3 class="list-title">{{title}}</h3>
+  <input class="list-title-edit hidden" value="{{title}}">
+
+  <a href="#" class="btn-menu">
+    <span class="icon-menu-grey"></span>
+  </a>
+
+  <div class="list-menu hidden">
+    <div class="list-menu-bg"></div>
+    <div class="menu-container">
+      <div class="menu-header flex-container">
+        <h2>List Actions</h2>
+        <a href="#" class="btn-close-menu">
+          <span class="icon-close"></span>
+        </a>
+      </div>
+      <hr>
+      <a href="#" class="btn-delete">Delete List</a>
+    </div>
+  </div>
+  
+</div>
+
+<ul class="list-ul" data-id="{{id}}"></ul>
+
+<a href="#" class="add-card">
+  <span>Add a card...</span>
+</a>
+
+<div class="add-card-input hidden">
+  <textarea class="add-card-textarea"></textarea>
+  <div>
+    <a href="#" class="btn-confirm">Add</a>
+    <a href="#" class="btn-close-add-card-input">
+      <span class="icon-close"></span>
+    </a>
+  </div>
+</div>
