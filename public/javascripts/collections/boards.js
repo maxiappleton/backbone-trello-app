@@ -1,5 +1,5 @@
 var Boards = Backbone.Collection.extend({
   model: Board,
-  url: 'http://localhost:3000/api/boards',
-  initialize: function() {}
+  url: `${window.location.protocol}//${window.location.host}/api/boards`,
+  initialize: function () { }
 });
