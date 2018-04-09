@@ -20,17 +20,6 @@ router.get('/:cardID', async function (req, res, next) {
   });
 });
 
-// Retrieve JSON Data to pass to Jade template for bootstrapping initial page load
-// function getJSONData() {
-//   var filePath = path.resolve(path.dirname(__dirname), "./data");
-//   var result = {};
-//   ['boards', 'cards', 'lists'].forEach(type => {
-//     var string = fs.readFileSync(filePath + `/${type}.json`, 'utf8');
-//     result[type] = JSON.parse(string);
-//   });
-//   return result;
-// }
-
 async function getJSONData() {
   const result = {
     boards: [],
@@ -43,7 +32,7 @@ async function getJSONData() {
     result.lists = await List.find();
     result.cards = await Card.find();
   } catch (error) {
-
+    // Blank data returned if a DB error
   }
 
   return result;
