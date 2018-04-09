@@ -14,20 +14,20 @@ var CardView = Backbone.View.extend({
 
   // Card Interactions
 
-  cardClick: function(e) {
+  cardClick: function (e) {
     e.preventDefault();
     AppRouter.navigate($(e.currentTarget).attr("href"), { trigger: true });
   },
 
   // Card Title Interactions
 
-  editTitleClick: function(e) {
+  editTitleClick: function (e) {
     e.preventDefault();
     e.stopPropagation();
     this.renderCardTitleModal();
   },
 
-  renderCardTitleModal: function() {
+  renderCardTitleModal: function () {
     var cardPosition = this.$el.offset();
     this.$el.find('.card-title-edit').css({
       'top': cardPosition.top,
@@ -40,18 +40,18 @@ var CardView = Backbone.View.extend({
     this.$el.find('.title-edit').select();
   },
 
-  titleSaveClick: function(e) {
+  titleSaveClick: function (e) {
     e.preventDefault();
     var newTitle = this.$el.find('.title-edit').val();
     this.model.updateTitle(newTitle);
     this.removeCardTitleModal();
   },
 
-  removeCardTitleModal: function() {
+  removeCardTitleModal: function () {
     this.$el.find('.card-title-modal').hide();
   },
 
-  titleKeyDown: function(e) {
+  titleKeyDown: function (e) {
     if (e.which === 13) {
       // enter key pressed
       this.titleSaveClick(e);
@@ -63,15 +63,15 @@ var CardView = Backbone.View.extend({
 
   // Rendering
 
-  initialRender: function() {
-    this.$el.attr('data-id', this.model.get('id'));
+  initialRender: function () {
+    this.$el.attr('data-id', this.model.get('_id'));
     this.$el.html(this.template(this.model.toJSON()));
     this.renderDesIcon();
     var $parentList = this.getInitialParentListULTag();
     $parentList.append(this.el);
   },
 
-  renderDesIcon: function() {
+  renderDesIcon: function () {
     var textIcon = this.$el.find('.icon-text');
     if (this.model.get('description')) {
       textIcon.show();
@@ -80,20 +80,20 @@ var CardView = Backbone.View.extend({
     }
   },
 
-  getInitialParentListULTag: function() {
+  getInitialParentListULTag: function () {
     var listID = this.model.get('currentList');
     return $(`ul[data-id="${listID}"]`).get(0);
   },
 
-  reRenderTitle: function() {
+  reRenderTitle: function () {
     this.$el.find('.card-title').text(this.model.get('title'));
   },
 
-  remove: function() {
+  remove: function () {
     this.$el.remove();
   },
 
-  initialize: function() {
+  initialize: function () {
     this.listenTo(this.model, 'change:title', this.reRenderTitle);
     this.listenTo(this.model, 'change:description', this.renderDesIcon);
     this.listenTo(this.model, 'destroy', this.remove);

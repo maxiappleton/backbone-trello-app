@@ -11,35 +11,35 @@ var BoardView = Backbone.View.extend({
     "keydown .new-list-title:focus": "addListKeyDown"
   },
 
-  clickHeaderBtn: function(e) {
+  clickHeaderBtn: function (e) {
     e.preventDefault();
   },
 
   // Add List Interactions
 
-  addListClick: function(e) {
+  addListClick: function (e) {
     e.preventDefault();
     var self = this;
-    self.$el.find('.add-list').slideUp(200, function(){ 
-      self.$el.find('.add-list-input').slideDown(); 
+    self.$el.find('.add-list').slideUp(200, function () {
+      self.$el.find('.add-list-input').slideDown();
     });
   },
 
-  confirmAddNewListClick: function(e) {
+  confirmAddNewListClick: function (e) {
     e.preventDefault();
     var newListTitle = this.$el.find('.new-list-title').val();
     this.model.createAndAddNewList({ 'title': newListTitle });
     this.closeAddList(e);
   },
 
-  closeAddList: function(e) {
+  closeAddList: function (e) {
     e.preventDefault();
     this.$el.find('.new-list-title').val('');
     this.$el.find('.add-list-input').hide();
     this.$el.find('.add-list').show();
   },
 
-  addListKeyDown: function(e) {
+  addListKeyDown: function (e) {
     // enter key pressed
     if (e.which === 13) {
       this.confirmAddNewListClick(e);
@@ -51,14 +51,14 @@ var BoardView = Backbone.View.extend({
 
   // Rendering
 
-  initialRender: function() {
-    this.$el.attr('data-id', this.model.get('id'));
+  initialRender: function () {
+    this.$el.attr('data-id', this.model.get('_id'));
     this.$el.html(this.template(this.model.toJSON()));
     this.setUpDragula();
     this.renderLists();
   },
 
-  setUpDragula: function() {
+  setUpDragula: function () {
     this.dragulaCards = dragula({ revertOnSpill: true });
     this.dragulaLists = dragula([document.querySelector('.user-lists')], {
       invalid: function (el, handle) {
@@ -72,18 +72,18 @@ var BoardView = Backbone.View.extend({
     this.dragulaLists.on('drop', this.model.handleListDrop.bind(this.model));
   },
 
-  renderLists: function() {
+  renderLists: function () {
     this.model.lists.each(list => {
       this.renderOneList(list);
     });
   },
 
-  renderOneList: function(listModel) {
+  renderOneList: function (listModel) {
     var newListView = new ListView({ model: listModel });
     this.dragulaCards.containers.push(newListView.el.querySelector('.list-ul'));
   },
 
-  initialize: function() {
+  initialize: function () {
     this.listenTo(this.model.lists, 'add', this.renderOneList);
     this.initialRender();
   }

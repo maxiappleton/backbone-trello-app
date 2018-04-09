@@ -1,17 +1,20 @@
 <h2>Cards</h2>
 {{#each cards}}
 <div class="result-container">
-  <a href="/{{id}}">
+  <a href="/{{_id}}">
     <div class="search-card">
       <span class="search-card-title">{{title}}</span>
       {{#if description}}
       <span class="icon-text"></span>
       {{/if}}
-   </div>
+    </div>
   </a>
   <div class="search-card-info">
     <p class="bold">{{title}}</p>
-    <p class="search-info-details">in <span class="bold">{{listNameFromID currentList}}</span> on <span class="bold">{{boardNameFromListID currentList}}</span></p>
+    <p class="search-info-details">in
+      <span class="bold">{{listNameFromID currentList}}</span> on
+      <span class="bold">{{boardNameFromListID currentList}}</span>
+    </p>
   </div>
 </div>
 {{/each}}

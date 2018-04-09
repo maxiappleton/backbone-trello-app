@@ -15,12 +15,12 @@ var CardModalView = Backbone.View.extend({
 
   // Card Title Interactions
 
-  submitNewCardTitle: function() {
+  submitNewCardTitle: function () {
     var newTitle = this.$el.find('.modal-card-title').val();
     this.model.updateTitle(newTitle);
   },
 
-  cardTitleKeyDown: function(e) {
+  cardTitleKeyDown: function (e) {
     // enter or esc key pressed
     if (e.which === 13 || e.which === 27) {
       this.$el.find('.modal-card-title').blur();
@@ -29,20 +29,20 @@ var CardModalView = Backbone.View.extend({
 
   // Card Description Interactions
 
-  editClick: function(e) {
+  editClick: function (e) {
     e.preventDefault();
     $('.description').hide();
     $('.editable-description').show();
   },
 
-  editSave: function(e) {
+  editSave: function (e) {
     e.preventDefault();
     var newDescription = $('.des-textarea').val();
     this.model.updateDescription(newDescription);
     this.closeEdit(e);
   },
 
-  closeEdit: function(e) {
+  closeEdit: function (e) {
     e.preventDefault();
     $('.des-textarea').val(this.model.get('description'));
     $('.editable-description').hide();
@@ -51,35 +51,35 @@ var CardModalView = Backbone.View.extend({
 
   // Other Interactions
 
-  deleteClick: function(e) {
+  deleteClick: function (e) {
     e.preventDefault();
-    if (confirm("Do you really want to delete this card?")){
-      var cardID = this.model.get('id');
+    if (confirm("Do you really want to delete this card?")) {
+      var cardID = this.model.get('_id');
       var listID = this.model.get('currentList');
       App.defaultBoard.lists.get(listID).destroyCard(cardID);
       this.hideAndRemoveModal(e);
-    }  
+    }
   },
 
-  hideAndRemoveModal: function(e) {
+  hideAndRemoveModal: function (e) {
     if (e) { e.preventDefault(); }
     AppRouter.navigate('/');
-    this.$el.fadeOut('400', function() { $(this).remove(); });
+    this.$el.fadeOut('400', function () { $(this).remove(); });
   },
 
   // Rendering
 
-  initialRender: function() {
+  initialRender: function () {
     this.$el.html(this.template(this.model.toJSON()));
     $('main').append(this.$el);
   },
 
-  reRender: function() {
+  reRender: function () {
     this.$el.empty();
     this.$el.html(this.template(this.model.toJSON()));
   },
 
-  initialize: function() {
+  initialize: function () {
     this.listenTo(this.model, "change", this.reRender);
     this.initialRender();
   }

@@ -3,17 +3,17 @@ var Card = Backbone.Model.extend({
     'description': ''
   },
 
-  updateTitle: function(newTitle) {
+  updateTitle: function (newTitle) {
     // Empty title not valid
     if (!newTitle) {
       return;
-    // Only PUT request if title is changed
+      // Only PUT request if title is changed
     } else if (newTitle !== this.get('title')) {
       this.save({ 'title': newTitle });
     }
   },
 
-  updateDescription: function(newDescription) {
+  updateDescription: function (newDescription) {
     // Only PUT request if description is changed
     if (newDescription !== this.get('description')) {
       this.save({ 'description': newDescription });
@@ -31,5 +31,7 @@ var Card = Backbone.Model.extend({
     this.save({ 'currentList': newListID });
   },
 
-  initialize: function() {}
+  idAttribute: '_id',
+
+  initialize: function () { }
 });
