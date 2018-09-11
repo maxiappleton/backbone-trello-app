@@ -1,4 +1,4 @@
-# Trello Clone App
+# Brello
 This Trello clone app was built using a MongoDB backed API, as well as Node/Express and Jade on the back-end and Backbone (jQuery + Underscore), Handlebars, and Dragula on the front-end.
 
 It allows you to create and delete lists and cards on a single board, add comments to cards, and drag and drop functionality to reorder the lists and cards, as well as search all the cards for matches in the title or description.
